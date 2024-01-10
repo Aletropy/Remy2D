@@ -4,12 +4,12 @@
 
 ## How to Use?
 
-If you want to know how to install, build or just use it, i'll refer all this in the *Wiki* page.
+If you want to know how to install, build, or just use it, I'll refer to all of this on the [Wiki](https://github.com/Aletropy/Remy2D/wiki/Home) page.
 
 ## Why?
 
-Im making this because i want to learn all concepts of OpenGL, and some of them to make an game engine. It is not made to replace any existing library, otherwise is primary made to i do my own stuff with it.
+I'm doing this because I want to learn all the concepts of OpenGL, and some of them to create a game engine. It is not made to replace any existing library; instead, it is primarily made for me to do my own stuff with it.
 
 ## Why OpenGL? And not Vulkan?
 
-I'd prefer to use OpenGL because im more friendly with it, just for while. Im planning to move to vulkan in future.
+I'd prefer to use OpenGL because I'm more familiar with it, just for a while. I'm planning to move to Vulkan in the future.
