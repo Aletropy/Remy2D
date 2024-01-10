@@ -24,6 +24,7 @@ project "Sandbox"
         "gdi32",
         "opengl32",
         "RemyEngine",
+        "glad",
         "glfw"
     }
 

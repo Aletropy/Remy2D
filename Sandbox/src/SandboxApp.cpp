@@ -13,6 +13,7 @@ namespace RY
 
         void OnUpdate() override
         {
+            GL::Renderer::ClearColor(0.8f, 0.34f, 0.5f);
         }
     };
 }

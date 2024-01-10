@@ -1,6 +1,7 @@
 #include "Application.h"
 
 #include "Log.h"
+#include "Graphics/OpenGL/Renderer.h"
 
 namespace RY
 {
@@ -23,6 +24,7 @@ namespace RY
         while(m_IsRunning)
         {
             OnUpdate();
+            GL::Renderer::Clear();
             m_Window.UpdateWindow();
         }
     }

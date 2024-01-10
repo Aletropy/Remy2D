@@ -15,6 +15,7 @@ project "RemyEngine"
     includedirs
     {
         "%{wks.location}/RemyEngine/vendor/glfw/include",
+        "%{wks.location}/RemyEngine/vendor/glad/include",
         "src/"
     }
 
@@ -22,6 +23,7 @@ project "RemyEngine"
     {
         "gdi32",
         "opengl32",
+        "glad",
         "glfw"
     }
 
