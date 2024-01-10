@@ -14,7 +14,15 @@ project "RemyEngine"
 
     includedirs
     {
+        "%{wks.location}/RemyEngine/vendor/glfw/include",
         "src/"
+    }
+
+    links
+    {
+        "gdi32",
+        "opengl32",
+        "glfw"
     }
 
     filter "configurations:Debug"

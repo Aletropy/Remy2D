@@ -8,5 +8,7 @@ workspace "Remy"
 
 outputdir = "%{cfg.buildcfg}/%{cfg.system}-%{cfg.architecture}"
 
+include "RemyEngine/vendor/glfw"
+
 include "RemyEngine"
 include "Sandbox"

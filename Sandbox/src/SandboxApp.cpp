@@ -13,7 +13,6 @@ namespace RY
 
         void OnUpdate() override
         {
-            Terminate();
         }
     };
 }

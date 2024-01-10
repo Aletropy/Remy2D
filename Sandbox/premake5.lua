@@ -15,12 +15,16 @@ project "Sandbox"
     includedirs
     {
         "src/",
+        "%{wks.location}/RemyEngine/vendor/glfw/include",
         "%{wks.location}/RemyEngine/src"
     }
 
     links
     {
-        "RemyEngine"
+        "gdi32",
+        "opengl32",
+        "RemyEngine",
+        "glfw"
     }
 
     filter "configurations:Debug"
