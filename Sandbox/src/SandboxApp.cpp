@@ -1,8 +1,24 @@
-#include <iostream>
+#include "RemyEngine.h"
 
-int main()
+namespace RY
 {
-    std::cout << "Hello World!" << std::endl;
-    std::cin.get();
-    return 0;
+    class SandboxApp : public Application
+    {
+    public:
+        SandboxApp()
+            : Application(800, 600, "SandboxApp")
+        {
+            RY_INFO("Application custom log");
+        }
+
+        void OnUpdate() override
+        {
+            Terminate();
+        }
+    };
+}
+
+RY::Application* RY::CreateApplication()
+{
+    return new SandboxApp;
 }
