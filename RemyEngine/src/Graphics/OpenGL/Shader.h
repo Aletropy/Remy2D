@@ -3,6 +3,8 @@
 #include <string>
 #include <stdint.h>
 
+#include <glm/glm.hpp>
+
 namespace RY
 {
     namespace GL
@@ -14,6 +16,7 @@ namespace RY
             ~Shader();
 
             void Use();
+            void SetUniformMatrix4(const std::string& name, const glm::mat4& matrix);
 
         private:
             static std::string ReadFile(const std::string& filepath);

@@ -23,8 +23,14 @@ namespace RY
 
         while(m_IsRunning)
         {
-            OnUpdate();
+            for(auto layer : m_Layers)
+                layer->OnUpdate();
+
             GL::Renderer::Clear();
+
+            for(auto layer : m_Layers)
+                layer->OnRender();
+
             m_Window.UpdateWindow();
         }
     }
@@ -32,5 +38,32 @@ namespace RY
     void Application::Terminate()
     {
         m_IsRunning = false;
+
+        for(auto layer : m_Layers)
+        {
+            delete layer;
+        }
+
+        m_Layers.clear();
+    }
+
+    void Application::PushLayer(Layer *layer)
+    {
+        m_Layers.push_back(layer);
+        layer->OnAttach();
+    }
+
+    void Application::PopLayer(Layer *layer)
+    {
+        for(int i = 0; i < m_Layers.size(); i++)
+        {
+            auto l = m_Layers[i];
+            if(l == layer)
+            {
+                layer->OnDetach();
+                delete m_Layers[i];
+                m_Layers.erase(std::next(m_Layers.begin(), i));
+            }
+        }
     }
 }

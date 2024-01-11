@@ -16,6 +16,7 @@ project "RemyEngine"
     {
         "%{wks.location}/RemyEngine/vendor/glfw/include",
         "%{wks.location}/RemyEngine/vendor/glad/include",
+        "%{wks.location}/vendor/glm/include",
         "src/"
     }
 

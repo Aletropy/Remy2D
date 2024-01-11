@@ -5,6 +5,8 @@
 #include <sstream>
 #include <glad/glad.h>
 
+#include <glm/gtc/type_ptr.hpp>
+
 namespace RY
 {
     namespace GL
@@ -27,7 +29,7 @@ namespace RY
             {
                 char* msg = new char[256];
                 glGetProgramInfoLog(m_Id, 256, nullptr, msg);
-                RY_CORE_INFO("Cannot link program: %s", msg);
+                RY_CORE_ERROR("Cannot link program: %s", msg);
             }
 
             glDeleteShader(vs);
@@ -44,13 +46,19 @@ namespace RY
             glUseProgram(m_Id);
         }
 
+        void Shader::SetUniformMatrix4(const std::string &name, const glm::mat4 &matrix)
+        {
+            int location = glGetUniformLocation(m_Id, name.c_str());
+            glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+        }
+
         std::string Shader::ReadFile(const std::string& filepath)
         {
             std::ifstream file(filepath);
 
             if(!file.is_open())
             {
-                RY_CORE_INFO("Error: cannot open file: %s", filepath.c_str());
+                RY_CORE_ERROR("Cannot open file: %s", filepath.c_str());
                 return std::string();
             }
 

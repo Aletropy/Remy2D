@@ -2,6 +2,9 @@
 #include <string>
 
 #include "Graphics/Window.h"
+#include "Layer/Layer.h"
+
+#include <vector>
 
 namespace RY
 {
@@ -13,10 +16,10 @@ namespace RY
         Application(int width, int height, const std::string& name);
         
         void Run();
-
         void Terminate();
 
-        virtual void OnUpdate() = 0;
+        void PushLayer(Layer* layer);
+        void PopLayer(Layer* layer);
 
         Window& GetWindow() { return m_Window; }
 
@@ -24,5 +27,6 @@ namespace RY
         std::string m_Name;
         Window m_Window;
         bool m_IsRunning;
+        std::vector<Layer*> m_Layers;
     };
 }

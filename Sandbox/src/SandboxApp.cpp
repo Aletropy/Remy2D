@@ -1,4 +1,7 @@
 #include "RemyEngine.h"
+#include "Core/EntryPoint.h"
+
+#include "MainLayer.h"
 
 namespace RY
 {
@@ -8,12 +11,7 @@ namespace RY
         SandboxApp()
             : Application(800, 600, "SandboxApp")
         {
-            RY_INFO("Application custom log");
-        }
-
-        void OnUpdate() override
-        {
-            GL::Renderer::ClearColor(0.8f, 0.34f, 0.5f);
+            PushLayer(new MainLayer);
         }
     };
 }

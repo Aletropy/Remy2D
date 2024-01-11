@@ -16,6 +16,7 @@ project "Sandbox"
     {
         "src/",
         "%{wks.location}/RemyEngine/vendor/glfw/include",
+        "%{wks.location}/vendor/glm/include",
         "%{wks.location}/RemyEngine/src"
     }
 

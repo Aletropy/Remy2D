@@ -15,8 +15,7 @@ namespace RY
     {
         if(!glfwInitialized)
         {
-            if(glfwInit())
-                RY_CORE_INFO("Initialized GLFW.");
+            RY_CORE_TRACE(glfwInit(), "GLFW could not be initialized.");
         }
 
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -32,6 +31,11 @@ namespace RY
         glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* w)
         {
             Application::Instance->Terminate();
+        });
+
+        glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* w, int width, int height)
+        {
+            GL::Renderer::Viewport(width, height);
         });
     }
 
